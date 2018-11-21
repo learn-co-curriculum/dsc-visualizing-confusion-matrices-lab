@@ -11,6 +11,7 @@ You will be able to:
 * Understand and assess precision recall and accuracy of classifiers
 * Evaluate classification models using various metrics
 
+## Confusion matrices
 Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
   
 Here's an example of generating a confusion matrix:
@@ -18,7 +19,7 @@ Here's an example of generating a confusion matrix:
 
 With that, let's look at some code for generating this visual.
 
-# Create our model
+## Create our model
 As usual, we start by fitting a model to our data by importing, normalizing, splitting into train and test sets and then calling our algorithm.
 
 
@@ -189,7 +190,7 @@ df.head()
 
 
 
-# Create the confusion matrix
+## Create the confusion matrix
 From there it's very easy to create the raw confusion matrix using built in methods:
 
 
@@ -205,7 +206,7 @@ print('Confusion Matrix:\n',cnf_matrix)
      [ 9 39]]
 
 
-# Creating a Nice Visual
+## Creating a Nice Visual
 Creating a pretty visual is a little more complicated. Generating the initial image is simple but we have to use the itertools package to iterate over the matrix and append labels to the individual cells.
 
 
@@ -251,7 +252,7 @@ plt.colorbar()
 ![png](index_files/index_7_1.png)
 
 
-# Create a general function that plots the confusion matrix
+## Create a general function that plots the confusion matrix
 
 
 ```python
@@ -287,7 +288,7 @@ def plot_confusion_matrix(cm, classes,
     plt.xlabel('Predicted label')
 ```
 
-# Update your function to include an option for normalization.
+## Update your function to include an option for normalization.
 When the normalization parameter is set to True, your function should return percentages for the each label class in the visual rather then raw counts.
 
 
@@ -324,7 +325,7 @@ def plot_confusion_matrix(cm, classes,
     plt.xlabel('Predicted label')
 ```
 
-# Create a normalized confusion matrix
+## Create a normalized confusion matrix
 Call you function to create a normalized confusion matrix for the model above.
 
 
@@ -346,5 +347,5 @@ plt.show()
 ![png](index_files/index_13_1.png)
 
 
-# Conclusion
+## Summary
 Well done! In this lab we previewed the confusion matrix and practice our matplotlib skills for producing visualizations!
