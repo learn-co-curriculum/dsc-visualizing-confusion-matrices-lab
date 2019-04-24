@@ -192,14 +192,30 @@ df.head()
 
 
 ## Create the confusion matrix
-From there it's very easy to create the raw confusion matrix using built in methods:
+
+In the cell below, complete the `conf_matrix` function.  This function should:
+
+* Take in 2 arguments: 
+    * `y_true`, an array of labels
+    * `y_pred`, an array of model predictions
+* Return a Confusion Matrix in the form of a dictionary, where the keys are `'TP', 'TN', 'FP', 'FN'`. 
+
 
 
 ```python
-from sklearn.metrics import confusion_matrix
+def conf_matrix(y_true, y_pred):
+    pass
+```
 
-cnf_matrix = confusion_matrix(y_hat_test, y_test)
-print('Confusion Matrix:\n',cnf_matrix)
+## Checking Our Work with sklearn
+
+To check our work, let's make use the the `confusion_matrix()` function found in `sklearn.metrics` to create some confusion matrices and make sure that sklearn's results match up with our own.
+
+In the cells below, import the `confusion_matrix()` function, use it to create a confusion matrix for each of our models, and then compare the results with the confusion matrices we created above. 
+
+
+```python
+
 ```
 
     Confusion Matrix:
@@ -250,7 +266,7 @@ plt.colorbar()
 
 
 
-![png](index_files/index_7_1.png)
+![png](index_files/index_9_1.png)
 
 
 ## Create a general function that plots the confusion matrix
