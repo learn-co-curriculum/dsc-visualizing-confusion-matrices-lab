@@ -3,13 +3,13 @@
 
 ## Introduction
 
-In this lab, you'll build upon previous lessons on precision, recall and accuracy and create a confusion matrix visualization. You may remember seeing confusion matrices from our KNN work! Now, we'll put that together into a more cohesive visual using matplotlib.  
+In this lab, you'll build upon the previous lesson on confusion matrices and create a confusion matrix visualization using matplotlib. 
 
 ## Objectives
 
 You will be able to:
-* Understand and assess precision recall and accuracy of classifiers
-* Evaluate classification models using various metrics
+* Create visualizations of a confusion matrix
+* Interpret a confusion matrix to assess model performance
 
 ## Confusion matrices
 
@@ -21,7 +21,7 @@ Here's an example of generating a confusion matrix:
 With that, let's look at some code for generating this visual.
 
 ## Create our model
-As usual, we start by fitting a model to our data by importing, normalizing, splitting into train and test sets and then calling our algorithm.
+As usual, start by fitting a model to data by importing, normalizing, splitting into train and test sets and then calling your chosen algorithm.
 
 
 ```python
@@ -193,7 +193,7 @@ df.head()
 
 ## Create the confusion matrix
 
-In the cell below, complete the `conf_matrix` function.  This function should:
+To gain a better understanding of confusion matrices, complete the `conf_matrix` function in the cell below.  This function should:
 
 * Take in 2 arguments: 
     * `y_true`, an array of labels
@@ -207,11 +207,11 @@ def conf_matrix(y_true, y_pred):
     pass
 ```
 
-## Checking Our Work with sklearn
+## Checking Your Work with sklearn
 
-To check our work, let's make use the the `confusion_matrix()` function found in `sklearn.metrics` to create some confusion matrices and make sure that sklearn's results match up with our own.
+To check your work, make use the the `confusion_matrix()` function found in `sklearn.metrics` to create some confusion matrices and make sure that sklearn's results match up with your own.
 
-In the cells below, import the `confusion_matrix()` function, use it to create a confusion matrix for each of our models, and then compare the results with the confusion matrices we created above. 
+In the cells below, import the `confusion_matrix()` function, use it to create a confusion matrix for each of your models, and then compare the results with the confusion matrices we created above. 
 
 
 ```python
@@ -224,7 +224,7 @@ In the cells below, import the `confusion_matrix()` function, use it to create a
 
 
 ## Creating a Nice Visual
-Creating a pretty visual is a little more complicated. Generating the initial image is simple but we have to use the itertools package to iterate over the matrix and append labels to the individual cells.
+Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells.
 
 
 ```python
@@ -317,4 +317,4 @@ Call you function to create a normalized confusion matrix for the model above.
 ```
 
 ## Summary
-Well done! In this lab we previewed the confusion matrix and practice our matplotlib skills for producing visualizations!
+Well done! In this lab you previewed the confusion matrix and practiced matplotlib skills for producing visualizations!
