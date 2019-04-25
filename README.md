@@ -308,7 +308,7 @@ def plot_confusion_matrix(cm, classes,
 ```
 
 ## Create a normalized confusion matrix
-Call you function to create a normalized confusion matrix for the model above.
+Call your function to create a normalized confusion matrix for the model above.
 
 
 ```python
