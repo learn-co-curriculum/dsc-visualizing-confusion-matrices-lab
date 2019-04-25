@@ -365,7 +365,7 @@ def plot_confusion_matrix(cm, classes,
 ```
 
 ## Create a normalized confusion matrix
-Call you function to create a normalized confusion matrix for the model above.
+Call your function to create a normalized confusion matrix for the model above.
 
 
 ```python
@@ -387,4 +387,4 @@ plt.show()
 
 
 ## Summary
-Well done! In this lab we previewed the confusion matrix and practice our matplotlib skills for producing visualizations!
+Well done! In this lab you previewed the confusion matrix and practiced matplotlib skills for producing visualizations!
