@@ -57,8 +57,12 @@ df.head()
 
     LogisticRegression(C=1000000000000.0, class_weight=None, dual=False,
               fit_intercept=False, intercept_scaling=1, max_iter=100,
-              multi_class='ovr', n_jobs=1, penalty='l2', random_state=None,
-              solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+              multi_class='warn', n_jobs=None, penalty='l2', random_state=None,
+              solver='warn', tol=0.0001, verbose=0, warm_start=False)
+
+
+    /Users/forest.polchow/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/logistic.py:433: FutureWarning: Default solver will be changed to 'lbfgs' in 0.22. Specify a solver to silence this warning.
+      FutureWarning)
 
 
 
@@ -222,6 +226,18 @@ def conf_matrix(y_true, y_pred):
     return cm
 ```
 
+
+```python
+conf_matrix(y_test,y_hat_test)
+```
+
+
+
+
+    {'TP': 39, 'TN': 24, 'FP': 9, 'FN': 4}
+
+
+
 ## Checking Your Work with sklearn
 
 To check your work, make use the the `confusion_matrix()` function found in `sklearn.metrics` to create some confusion matrices and make sure that `sklearn`'s results match up with your own.
@@ -281,12 +297,12 @@ plt.colorbar()
 
 
 
-    <matplotlib.colorbar.Colorbar at 0x11323d6d8>
+    <matplotlib.colorbar.Colorbar at 0x1a1d67dcc0>
 
 
 
 
-![png](index_files/index_9_1.png)
+![png](index_files/index_10_1.png)
 
 
 ## Create a general function that plots the confusion matrix
@@ -383,7 +399,7 @@ plt.show()
 
 
 
-![png](index_files/index_15_1.png)
+![png](index_files/index_16_1.png)
 
 
 ## Summary
