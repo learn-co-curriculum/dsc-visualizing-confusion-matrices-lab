@@ -3,16 +3,16 @@
 
 ## Introduction
 
-In this lab, you'll build upon previous lessons on precision, recall and accuracy and create a confusion matrix visualization. You may remember seeing confusion matrices from our KNN work! Now, we'll put that together into a more cohesive visual using matplotlib.  
+In this lab, you'll build upon the previous lesson on confusion matrices and create a confusion matrix visualization using matplotlib.
 
 ## Objectives
 
 You will be able to:
-* Understand and assess precision recall and accuracy of classifiers
-* Evaluate classification models using various metrics
+* Create visualizations of a confusion matrix
+* Interpret a confusion matrix to assess model performance
 
 ## Confusion matrices
-Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
+Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.
   
 Here's an example of generating a confusion matrix:
 ![](./images/confusion_matrix2.png)
@@ -20,7 +20,7 @@ Here's an example of generating a confusion matrix:
 With that, let's look at some code for generating this visual.
 
 ## Create our model
-As usual, we start by fitting a model to our data by importing, normalizing, splitting into train and test sets and then calling our algorithm.
+As usual, start by fitting a model to data by importing, normalizing, splitting into train and test sets and then calling your chosen algorithm.
 
 
 ```python
@@ -191,7 +191,44 @@ df.head()
 
 
 ## Create the confusion matrix
-From there it's very easy to create the raw confusion matrix using built in methods:
+To gain a better understanding of confusion matrices, complete the `conf_matrix` function in the cell below. This function should:
+
+* Take in 2 arguments: 
+    * `y_true`, an array of labels
+    * `y_pred`, an array of model predictions
+* Return a Confusion Matrix in the form of a dictionary, where the keys are `'TP', 'TN', 'FP', 'FN'`. 
+
+
+```python
+def conf_matrix(y_true, y_pred):
+    cm = {'TP': 0, 'TN': 0, 'FP': 0, 'FN': 0}
+    
+    for ind, label in enumerate(y_true):
+        pred = y_pred[ind]
+        if label == 1:
+            # CASE: TP 
+            if label == pred:
+                cm['TP'] += 1
+            # CASE: FN
+            else:
+                cm['FN'] += 1
+        else:
+            # CASE: TN
+            if label == pred:
+                cm['TN'] += 1
+            # CASE: FP
+            else:
+                cm['FP'] += 1
+    return cm
+```
+
+## Checking Your Work with sklearn
+
+To check your work, make use the the `confusion_matrix()` function found in `sklearn.metrics` to create some confusion matrices and make sure that `sklearn`'s results match up with your own.
+
+In the cells below, import the `confusion_matrix()` function, use it to create a confusion matrix for each of your models, and then compare the results with the confusion matrices we created above.
+
+
 
 
 ```python
@@ -207,7 +244,7 @@ print('Confusion Matrix:\n',cnf_matrix)
 
 
 ## Creating a Nice Visual
-Creating a pretty visual is a little more complicated. Generating the initial image is simple but we have to use the itertools package to iterate over the matrix and append labels to the individual cells.
+Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells.
 
 
 ```python
@@ -249,10 +286,12 @@ plt.colorbar()
 
 
 
-![png](index_files/index_7_1.png)
+![png](index_files/index_9_1.png)
 
 
 ## Create a general function that plots the confusion matrix
+
+Generalize the above code into a function that you can reuse to create confusion matrix visuals going forward.
 
 
 ```python
@@ -344,7 +383,7 @@ plt.show()
 
 
 
-![png](index_files/index_13_1.png)
+![png](index_files/index_15_1.png)
 
 
 ## Summary
