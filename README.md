@@ -224,7 +224,7 @@ In the cells below, import the `confusion_matrix()` function, use it to create a
 
 
 ## Creating a Nice Visual
-Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells.
+Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells. In this example, `cnf_matrix` should be the result of the sci-kit learn implementation of confusion matrix.
 
 
 ```python
