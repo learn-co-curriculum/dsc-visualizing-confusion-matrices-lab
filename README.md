@@ -16,7 +16,7 @@ You will be able to:
 Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
   
 Here's an example of generating a confusion matrix:
-![](./images/confusion_matrix2.png)
+<img src="./images/new_confusion_matrix.png" width="350">
 
 With that, let's look at some code for generating this visual.
 
