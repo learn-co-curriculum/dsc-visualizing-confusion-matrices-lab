@@ -251,13 +251,13 @@ In the cells below, import the `confusion_matrix()` function, use it to create a
 ```python
 from sklearn.metrics import confusion_matrix
 
-cnf_matrix = confusion_matrix(y_hat_test, y_test)
+cnf_matrix = confusion_matrix(y_test, y_hat_test)
 print('Confusion Matrix:\n',cnf_matrix)
 ```
 
     Confusion Matrix:
-     [[24  4]
-     [ 9 39]]
+     [[24  9]
+     [ 4 39]]
 
 
 ## Creating a Nice Visual
@@ -298,7 +298,7 @@ plt.colorbar()
 
 
 
-    <matplotlib.colorbar.Colorbar at 0x1a1d67dcc0>
+    <matplotlib.colorbar.Colorbar at 0x1a161f3470>
 
 
 
@@ -394,8 +394,8 @@ plt.show()
 ```
 
     Normalized confusion matrix
-    [[0.85714286 0.14285714]
-     [0.1875     0.8125    ]]
+    [[0.72727273 0.27272727]
+     [0.09302326 0.90697674]]
 
 
 
