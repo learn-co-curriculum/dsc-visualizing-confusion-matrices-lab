@@ -57,9 +57,9 @@ df.head()
 ```
 
     LogisticRegression(C=1000000000000.0, class_weight=None, dual=False,
-              fit_intercept=False, intercept_scaling=1, max_iter=100,
-              multi_class='ovr', n_jobs=1, penalty='l2', random_state=None,
-              solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+              fit_intercept=False, intercept_scaling=1, max_iter=10000,
+              multi_class='warn', n_jobs=None, penalty='l2', random_state=None,
+              solver='lbfgs', tol=0.0001, verbose=0, warm_start=False)
 
 
 
@@ -219,8 +219,8 @@ In the cells below, import the `confusion_matrix()` function, use it to create a
 ```
 
     Confusion Matrix:
-     [[24  4]
-     [ 9 39]]
+     [[24  9]
+     [ 4 39]]
 
 
 ## Creating a Nice Visual
@@ -261,7 +261,7 @@ plt.colorbar()
 
 
 
-    <matplotlib.colorbar.Colorbar at 0x1a16667ac8>
+    <matplotlib.colorbar.Colorbar at 0x1a20aa4668>
 
 
 
@@ -315,6 +315,15 @@ Call your function to create a normalized confusion matrix for the model above.
 # Plot normalized confusion matrix
 # Your code here
 ```
+
+    Normalized confusion matrix
+    [[0.72727273 0.27272727]
+     [0.09302326 0.90697674]]
+
+
+
+![png](index_files/index_15_1.png)
+
 
 ## Summary
 Well done! In this lab you previewed the confusion matrix and practiced matplotlib skills for producing visualizations!
