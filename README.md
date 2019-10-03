@@ -13,7 +13,7 @@ You will be able to:
 
 ## Confusion matrices
 
-Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
+Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives, and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
   
 Here's an example of generating a confusion matrix:
 <img src="./images/new_confusion_matrix_2.png" width="350">
@@ -261,7 +261,7 @@ print('Confusion Matrix:\n',cnf_matrix)
 
 
 ## Creating a Nice Visual
-Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells. In this example, `cnf_matrix` should be the result of the sci-kit learn implementation of confusion matrix.
+Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the itertools package to iterate over the matrix and append labels to the individual cells. In this example, `cnf_matrix` should be the result of the sci-kit learn implementation of a confusion matrix.
 
 
 ```python
@@ -344,7 +344,7 @@ def plot_confusion_matrix(cm, classes,
 ```
 
 ## Update your function to include an option for normalization.
-When the normalization parameter is set to True, your function should return percentages for the each label class in the visual rather then raw counts.
+When the normalization parameter is set to True, your function should return percentages for each label class in the visual rather than raw counts.
 
 
 ```python
@@ -403,4 +403,4 @@ plt.show()
 
 
 ## Summary
-Well done! In this lab you previewed the confusion matrix and practiced matplotlib skills for producing visualizations!
+Well done! In this lab, you previewed the confusion matrix and practiced matplotlib skills for producing visualizations!
