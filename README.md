@@ -27,9 +27,10 @@ As usual, we start by fitting a model to data by importing, normalizing, splitti
 
 
 ```python
+import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-import pandas as pd
 
 # Load the data
 df = pd.read_csv('heart.csv')
@@ -100,117 +101,22 @@ print('Confusion Matrix:\n', cnf_matrix)
 
 ## Create a nice visual
 
-Creating a pretty visual is a little more complicated. Generating the initial image is simple but you'll have to use the `itertools` package to iterate over the matrix and append labels to the individual cells. In this example, `cnf_matrix` is the result of the scikit-learn implementation of a confusion matrix from above.
+Luckily, sklearn recently implemented a `plot_confusion_matrix` function that you can use to create a nice visual of your confusion matrices. 
+
+[Check out the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html), then visualize the confusion matrix from your logistic regression model on your test data.
 
 
 ```python
-import numpy as np
-import itertools
-import matplotlib.pyplot as plt
-%matplotlib inline
+# Import plot_confusion_matrix
 
-# Create the basic matrix
-plt.imshow(cnf_matrix,  cmap=plt.cm.Blues) 
-
-# Add title and axis labels
-plt.title('Confusion Matrix')
-plt.ylabel('True label')
-plt.xlabel('Predicted label')
-
-# Add appropriate axis scales
-class_names = set(y) # Get class labels to add to matrix
-tick_marks = np.arange(len(class_names))
-plt.xticks(tick_marks, class_names, rotation=45)
-plt.yticks(tick_marks, class_names)
-
-# Add labels to each cell
-thresh = cnf_matrix.max() / 2. # Used for text coloring below
-# Here we iterate through the confusion matrix and append labels to our visualization 
-for i, j in itertools.product(range(cnf_matrix.shape[0]), range(cnf_matrix.shape[1])):
-        plt.text(j, i, cnf_matrix[i, j],
-                 horizontalalignment='center',
-                 color='white' if cnf_matrix[i, j] > thresh else 'black')
-
-# Add a legend
-plt.colorbar()
-plt.show()
 ```
 
-## Create a general function that plots the confusion matrix
-Generalize the above code into a function that you can reuse to create confusion matrix visuals going forward: 
-
-- `cm`: confusion matrix
-- `classes`: the class labels 
-
-
 
 ```python
-def plot_confusion_matrix(cm, classes,
-                          title='Confusion matrix',
-                          cmap=plt.cm.Blues):
-    
-    # Pseudocode/Outline:
-    # Print the confusion matrix (optional)
-    # Create the basic matrix
-    # Add title and axis labels
-    # Add appropriate axis scales
-    # Add labels to each cell
-    # Add a legend
-    
-    pass
-```
-
-## Update your function to include an option for normalization 
-When the normalization parameter is set to `True`, your function should return percentages for each class label in the visual rather than raw counts: 
-
-
-```python
-def plot_confusion_matrix(cm, classes,
-                          normalize=False,
-                          title='Confusion matrix',
-                          cmap=plt.cm.Blues):
-    
-    # Check if normalize is set to True
-    # If so, normalize the raw confusion matrix before visualizing
-    
-    print(cm)
-
-    plt.imshow(cm, cmap=cmap)
-    
-    # Add title and axis labels 
-    plt.title('Confusion Matrix') 
-    plt.ylabel('True label') 
-    plt.xlabel('Predicted label')
-    
-    # Add appropriate axis scales
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
-    
-    # Text formatting
-    fmt = '.2f' if normalize else 'd'
-    # Add labels to each cell
-    thresh = cm.max() / 2.
-    # Here we iterate through the confusion matrix and append labels to our visualization 
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
-                 horizontalalignment='center',
-                 color='white' if cm[i, j] > thresh else 'black')
-    
-    # Add a legend
-    plt.colorbar()
-    plt.show() 
-```
-
-## Plot a normalized confusion matrix
-
-Call the function to visualize a normalized confusion matrix for `cnf_matrix`. 
-
-
-```python
-# Plot a normalized confusion matrix
+# Visualize your confusion matrix
 
 ```
 
 ## Summary
-Well done! In this lab, you created a confusion matrix from scratch and honed your `matplotlib` skills by visualizing confusion matrices! 
+
+Well done! In this lab, you created a confusion matrix from scratch, then explored how to use a new function to visualize confusion matrices nicely!
