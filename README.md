@@ -1,4 +1,3 @@
-
 # Visualizing Confusion Matrices - Lab
 
 ## Introduction
@@ -39,12 +38,18 @@ df = pd.read_csv('heart.csv')
 X = df[df.columns[:-1]]
 y = df.target
 
-# Normalize the data
-for col in df.columns:
-    df[col] = (df[col] - min(df[col]))/ (max(df[col]) - min(df[col]))
-
 # Split the data into train and test sets 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+# Normalize the data
+X_train = X_train.copy()
+X_test = X_test.copy()
+
+for col in X_train.columns:
+    X_train[col] = (X_train[col] - min(X_train[col]))/ (max(X_train[col]) - min(X_train[col]))
+
+for col in X_test.columns:
+    X_test[col] = (X_test[col] - min(X_test[col]))/ (max(X_test[col]) - min(X_test[col]))
 
 # Fit a model
 logreg = LogisticRegression(fit_intercept=False, C=1e12, solver='liblinear')
@@ -61,11 +66,7 @@ print("")
 df.head()
 ```
 
-    LogisticRegression(C=1000000000000.0, class_weight=None, dual=False,
-                       fit_intercept=False, intercept_scaling=1, l1_ratio=None,
-                       max_iter=100, multi_class='auto', n_jobs=None, penalty='l2',
-                       random_state=None, solver='liblinear', tol=0.0001, verbose=0,
-                       warm_start=False)
+    LogisticRegression(C=1000000000000.0, fit_intercept=False, solver='liblinear')
     
 
 
@@ -108,89 +109,89 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>0.708333</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.481132</td>
-      <td>0.244292</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.603053</td>
-      <td>0.0</td>
-      <td>0.370968</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.333333</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
+      <th>0</th>
+      <td>63</td>
       <td>1</td>
-      <td>0.166667</td>
-      <td>1.0</td>
-      <td>0.666667</td>
-      <td>0.339623</td>
-      <td>0.283105</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.885496</td>
-      <td>0.0</td>
-      <td>0.564516</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.666667</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>0.250000</td>
-      <td>0.0</td>
-      <td>0.333333</td>
-      <td>0.339623</td>
-      <td>0.178082</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.770992</td>
-      <td>0.0</td>
-      <td>0.225806</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.666667</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
       <td>3</td>
-      <td>0.562500</td>
-      <td>1.0</td>
-      <td>0.333333</td>
-      <td>0.245283</td>
-      <td>0.251142</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.816794</td>
-      <td>0.0</td>
-      <td>0.129032</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.666667</td>
-      <td>1.0</td>
+      <td>145</td>
+      <td>233</td>
+      <td>1</td>
+      <td>0</td>
+      <td>150</td>
+      <td>0</td>
+      <td>2.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>0.583333</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.245283</td>
-      <td>0.520548</td>
-      <td>0.0</td>
-      <td>0.5</td>
-      <td>0.702290</td>
-      <td>1.0</td>
-      <td>0.096774</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.666667</td>
-      <td>1.0</td>
+      <th>1</th>
+      <td>37</td>
+      <td>1</td>
+      <td>2</td>
+      <td>130</td>
+      <td>250</td>
+      <td>0</td>
+      <td>1</td>
+      <td>187</td>
+      <td>0</td>
+      <td>3.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>0</td>
+      <td>1</td>
+      <td>130</td>
+      <td>204</td>
+      <td>0</td>
+      <td>0</td>
+      <td>172</td>
+      <td>0</td>
+      <td>1.4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>56</td>
+      <td>1</td>
+      <td>1</td>
+      <td>120</td>
+      <td>236</td>
+      <td>0</td>
+      <td>1</td>
+      <td>178</td>
+      <td>0</td>
+      <td>0.8</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>120</td>
+      <td>354</td>
+      <td>0</td>
+      <td>1</td>
+      <td>163</td>
+      <td>1</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -236,7 +237,7 @@ conf_matrix(y_test, y_hat_test)
 
 
 
-    {'TP': 39, 'TN': 24, 'FP': 9, 'FN': 4}
+    {'TP': 38, 'TN': 26, 'FP': 7, 'FN': 5}
 
 
 
@@ -258,8 +259,8 @@ print('Confusion Matrix:\n', cnf_matrix)
 ```
 
     Confusion Matrix:
-     [[24  9]
-     [ 4 39]]
+     [[26  7]
+     [ 5 38]]
 
 
 ## Create a nice visual
@@ -284,7 +285,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_10_0.png)
+    
 
 
 ## Summary
