@@ -1,4 +1,3 @@
-
 # Visualizing Confusion Matrices - Lab
 
 ## Introduction
@@ -39,12 +38,18 @@ df = pd.read_csv('heart.csv')
 X = df[df.columns[:-1]]
 y = df.target
 
-# Normalize the data
-for col in df.columns:
-    df[col] = (df[col] - min(df[col]))/ (max(df[col]) - min(df[col]))
-
 # Split the data into train and test sets 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+# Normalize the data
+X_train = X_train.copy()
+X_test = X_test.copy()
+
+for col in X_train.columns:
+    X_train[col] = (X_train[col] - min(X_train[col]))/ (max(X_train[col]) - min(X_train[col]))
+
+for col in X_test.columns:
+    X_test[col] = (X_test[col] - min(X_test[col]))/ (max(X_test[col]) - min(X_test[col]))    
 
 # Fit a model
 logreg = LogisticRegression(fit_intercept=False, C=1e12, solver='liblinear')
@@ -79,7 +84,7 @@ def conf_matrix(y_true, y_pred):
 
 # Test the function
 conf_matrix(y_test, y_hat_test)
-# Expected output: {'TP': 39, 'TN': 24, 'FP': 9, 'FN': 4}
+# Expected output: {'TP': 38, 'TN': 26, 'FP': 7, 'FN': 5}
 ```
 
 ## Check your work with `sklearn`
