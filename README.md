@@ -106,9 +106,9 @@ print('Confusion Matrix:\n', cnf_matrix)
 
 ## Create a nice visual
 
-Luckily, sklearn recently implemented a `plot_confusion_matrix` function that you can use to create a nice visual of your confusion matrices. 
+Luckily, sklearn recently implemented a `ConfusionMatrixDisplay` function that you can use to create a nice visual of your confusion matrices. 
 
-[Check out the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html), then visualize the confusion matrix from your logistic regression model on your test data.
+[Check out the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html), then visualize the confusion matrix from your logistic regression model on your test data.
 
 
 ```python
