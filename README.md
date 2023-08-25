@@ -17,7 +17,7 @@ In this lab you will:
 Recall that the confusion matrix represents the counts (or normalized counts) of our True Positives, False Positives, True Negatives, and False Negatives. This can further be visualized when analyzing the effectiveness of our classification algorithm.   
   
 Here's an example of how a confusion matrix is displayed:
-<img src="./images/new_confusion_matrix_2.png" width="350">
+<img src="https://curriculum-content.s3.amazonaws.com/data-science/images/new_confusion_matrix_2.png" width="350">
 
 With that, let's look at some code for generating this kind of visual.
 
